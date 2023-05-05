@@ -156,8 +156,8 @@ footer > div {
   }
   main {
     margin-top: 5rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
   footer,
   .attribution {
@@ -181,6 +181,7 @@ footer > div {
 body {
   background-color: var(--neutral-color-bg);
   color: var(--neutral-color-white);
+  overflow-y: hidden;
 }
 main {
   border-radius: 1rem;
@@ -227,7 +228,7 @@ main {
 
 .card-content > p,
 .creator > span {
-  opacity: 72%;
+  opacity: 64%;
   line-height: 160%;
 }
 .card-content > h5:hover {
@@ -301,6 +302,8 @@ svg {
 .creator > img {
   position: relative;
   width: 2rem;
+  border-radius: 100%;
+  border: 1px solid var(--neutral-color-white);
 }
 strong {
   font-weight: 400;
@@ -313,4 +316,10 @@ strong:hover {
 
 /* Mobile view */
 @media only screen and (max-width: 37.5rem) {
+  body {
+    display: flex;
+    overflow: hidden;
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
 }
