@@ -291,6 +291,7 @@ svg {
 .container:hover .overlay {
   background-color: var(--primary-color-cyan);
   opacity: 0.8;
+  cursor: pointer;
 }
 .creator {
   display: inline-flex;
@@ -307,6 +308,7 @@ strong {
 strong:hover {
   color: var(--primary-color-cyan);
   font-weight: 600;
+  cursor: pointer;
 }
 
 /* Mobile view */
