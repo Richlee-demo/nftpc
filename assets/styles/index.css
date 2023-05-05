@@ -5,16 +5,15 @@
 :root {
   /* Colors */
   /* Primary colors */
-  --primary-color-red: hsl(0, 78%, 62%);
-  --primary-color-cyan: hsl(180, 62%, 55%);
-  --primary-color-orange: hsl(34, 97%, 64%);
-  --primary-color-blue: hsl(212, 86%, 64%);
+  --primary-color-blue: hsl(215, 51%, 70%);
+  --primary-color-cyan: hsl(178, 100%, 50%);
   /* Secondary colors */
-  --neutral-color-900: hsl(234, 12%, 34%);
-  --neutral-color-500: hsl(229, 6%, 66%);
-  --neutral-color-50: hsl(0, 0%, 98%);
+  --neutral-color-bg: hsl(217, 54%, 11%);
+  --neutral-color-card: hsl(216, 50%, 16%);
+  --neutral-color-line: hsl(215, 32%, 27%);
+  --neutral-color-white: hsl(0, 0%, 100%);
   /* Text colors */
-  --text-color: #1a1a1a;
+  --text-color: hsl(0, 0%, 100%);
   /* Shadow colors */
   --shadow: 0 0 1.5rem hsla(234, 12%, 34%, 0.205);
 
@@ -27,14 +26,15 @@
   --h5-font-size: 1.25rem;
   --h6-font-size: 1rem;
   /* Body */
-  --body-text-font-size: 1rem;
+  --body-text-font-size1: 1.125rem;
+  --body-text-font-size2: 1rem;
   /* Caption */
   --caption-font-size: 0.75rem;
 
   /* Font weights */
-  --font-weight-light: 200;
-  --font-weight-regular: 500;
-  --font-weight-bold: 900;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
 
   /* Padding */
   --padding-x: 0.25rem;
@@ -99,26 +99,23 @@ h6 {
 .xxxxxx {
   padding-top: var(--padding-xxxxxx);
 }
-a {
+/* a {
   cursor: auto;
-  text-decoration: none;
-}
+} */
+
 /* Desktop view */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: var(--body-text-font-size);
   min-height: 100vh;
+  margin-left: 4rem;
+  margin-right: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
   overflow-y: scroll;
-}
-/* Main */
-main {
-  margin-left: 4rem;
-  margin-right: 4rem;
 }
 /* Attribution */
 footer > div {
@@ -129,7 +126,8 @@ footer > div {
   padding: var(--padding-xx);
 }
 .attribution {
-  color: var(--text-color);
+  color: var(--neutral-color-white);
+  opacity: 72%;
   font-size: var(--h6-font-size);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
@@ -137,12 +135,12 @@ footer > div {
   min-width: 20rem;
   display: flex;
   flex-direction: column;
-  cursor: auto;
 }
 .attribution a {
   color: var(--primary-color-blue);
   font-weight: var(--font-weight-bold);
   float: none;
+  text-decoration: none;
 }
 /* Mobile view */
 @media only screen and (max-width: 37.5rem) {
@@ -175,4 +173,142 @@ footer > div {
   footer > div {
     padding: var(--padding-xxx);
   }
+}
+
+/* Other CSS properties */
+
+/* Desktop view */
+body {
+  background-color: var(--neutral-color-bg);
+  color: var(--neutral-color-white);
+}
+main {
+  border-radius: 1rem;
+  background-color: var(--neutral-color-card);
+}
+.card {
+  position: relative;
+  width: 18.75rem;
+  height: 100%;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.container > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.overlay-card:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: hsl(0, 78%, 62%);
+  transition: 1 0.3s ease-in-out;
+}
+
+.card-content {
+  /* padding: 1rem; */
+  color: white;
+  transition: all 0.3s ease;
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom-width: 0.0313rem;
+  border-bottom-style: solid;
+  border-color: var(--neutral-color-line);
+}
+
+.card-content > p,
+.creator > span {
+  opacity: 72%;
+  line-height: 160%;
+}
+.card-content > h5:hover {
+  color: var(--primary-color-cyan);
+  cursor: pointer;
+}
+.subtext {
+  font-size: var(--body-text-font-size2);
+  display: inline-flex;
+  justify-content: space-between;
+}
+.right > p,
+.left > p {
+  line-height: 100%;
+}
+svg {
+  height: fit-content;
+}
+.left {
+  display: inline-flex;
+  color: var(--primary-color-cyan);
+  gap: 0.5rem;
+  align-items: center;
+}
+.right {
+  display: inline-flex;
+  opacity: 48%;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Card overlay style */
+.container {
+  position: relative;
+  width: 100%;
+}
+#overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 18.75rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+.overlay > svg {
+  opacity: 1;
+}
+.container:hover .overlay {
+  background-color: var(--primary-color-cyan);
+  opacity: 0.8;
+}
+.creator {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.creator > img {
+  position: relative;
+  width: 2rem;
+}
+strong {
+  font-weight: 400;
+}
+strong:hover {
+  color: var(--primary-color-cyan);
+  font-weight: 600;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 37.5rem) {
 }
